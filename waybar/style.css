@@ -1,0 +1,188 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Arabic", sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* --- Left Side: Workspaces --- */
+#workspaces {
+    background-color: #282828;
+    border: 1px solid #45403d;
+    border-radius: 20px;
+    padding: 2px 4px;
+    margin-left: 5px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 2px;
+    border-radius: 15px;
+    color: #928374;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+#workspaces button.active {
+    background-color: #8ec07c; /* Teal/Aqua Accent (primary) */
+    color: #282828;
+    min-width: 40px;
+}
+
+#workspaces button:hover {
+    background-color: #a9b665;
+    color: #282828;
+}
+
+/* --- Left Side: Media Capsule --- */
+#mpris {
+    background-color: #282828;
+    color: #7daea3; /* Teal/Aqua Accent (secondary, cooler tone) */
+    border: 1px solid #45403d;
+    border-radius: 20px;
+    padding: 0 14px;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+
+#mpris:hover {
+    background-color: #32302f;
+}
+
+/* --- Center: Clock --- */
+#clock {
+    background-color: #282828;
+    color: #8ec07c; /* Teal/Aqua Accent (primary) */
+    border: 1px solid #45403d;
+    border-radius: 20px;
+    padding: 0 20px;
+    transition: all 0.2s ease;
+}
+
+#clock:hover {
+    background-color: #32302f;
+}
+
+/* --- Right Side: Unified Multi-Module Capsule --- */
+.modules-right {
+    background-color: #282828;
+    border: 1px solid #45403d;
+    border-radius: 20px;
+    padding: 2px 12px;
+}
+
+/* Internal layout padding for items inside the right capsule */
+#tray, #idle_inhibitor, #memory, #cpu, #bluetooth, #network, #pulseaudio, #battery {
+    padding: 0 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+/* --- Hover feedback for every right-side module --- */
+#tray:hover,
+#idle_inhibitor:hover,
+#memory:hover,
+#cpu:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover {
+    background-color: #32302f;
+}
+
+/* --- Minimal Coffee Switch Logic --- */
+#idle_inhibitor {
+    color: #665c54;
+}
+
+#idle_inhibitor.activated {
+    color: #e78a4e;
+    background-color: #32302f;
+}
+
+/* --- Static Color Module Assignments --- */
+#cpu            { color: #d8a657; } /* Warm Yellow/Amber */
+#memory         { color: #e78a4e; } /* Orange */
+#bluetooth      { color: #d3869b; } /* Magenta */
+#network        { color: #7daea3; } /* Blue/Teal Mix */
+#pulseaudio     { color: #89b482; } /* Cyan/Muted Green */
+#battery        { color: #a9b665; } /* Green */
+
+/* --- Network States --- */
+#network.disconnected {
+    color: #665c54;
+}
+
+#network.disabled {
+    color: #45403d;
+}
+
+/* --- Battery States --- */
+#battery.warning {
+    color: #d8a657;
+}
+
+#battery.critical {
+    color: #ea6962;
+}
+
+#battery.charging {
+    color: #89b482;
+}
+
+@keyframes blink-critical {
+    to {
+        color: #282828;
+        background-color: #ea6962;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation: blink-critical 1.5s steps(2) infinite;
+}
+
+/* --- Audio States --- */
+#pulseaudio.muted {
+    color: #665c54;
+}
+
+/* --- Tray --- */
+#tray > .passive {
+    opacity: 0.6;
+}
+
+#tray > .needs-attention {
+    color: #ea6962;
+}
+
+/* --- Tooltips --- */
+tooltip {
+    background: #282828;
+    border: 1px solid #45403d;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: #d4be98;
+    padding: 8px;
+}
+
+
+#custom-power-profile {
+padding: 0 8px;
+border-radius: 12px;
+transition: all 0.2s ease;
+}
+#custom-power-profile:hover {
+background-color: #32302f;
+}
+#custom-power-profile.performance { color: #ea6962; }
+#custom-power-profile.balanced { color: #a9b665; }
+#custom-power-profile.power-saver { color: #7daea3; }

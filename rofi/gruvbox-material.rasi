@@ -1,0 +1,87 @@
+* {
+    bg:       #282828;
+    bg-alt:   #32302f;
+    fg:       #d4be98;
+    fg-alt:   #928374;
+    accent:   #8ec07c; /* Teal/Aqua Accent */
+    border:   #45403d;
+    danger:   #ea6962;
+    background-color: transparent;
+    text-color:        @fg;
+    font:               "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color: @bg;
+    border:            1px;
+    border-color:      @border;
+    border-radius:     16px;
+    width:              400px;
+    padding:            0px;
+}
+
+mainbox {
+    background-color: transparent;
+    padding: 16px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color:        @fg;
+    border-radius:     10px;
+    padding:            10px 14px;
+    children:           [ entry ];
+}
+
+entry {
+    background-color: transparent;
+    text-color:        @fg;
+    placeholder:        "Search...";
+    placeholder-color:  @fg-alt;
+}
+
+/* --- Error / info line (e.g. broken .desktop entries) --- */
+message {
+    background-color: transparent;
+    padding:            10px 0px 0px 0px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:        @danger;
+    padding:            8px 12px;
+}
+
+listview {
+    background-color: transparent;
+    lines:              5;
+    spacing:             4px;
+    padding:             12px 0px 0px 0px;
+    cycle:               true;
+    dynamic:             true;
+    scrollbar:           false;
+}
+
+element {
+    background-color: transparent;
+    text-color:        @fg-alt;
+    padding:            8px 12px;
+    border-radius:      8px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color: @danger;
+}
+
+element selected {
+    background-color: @accent;
+    text-color:        @bg;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:        inherit;
+    vertical-align:     0.5;
+}
