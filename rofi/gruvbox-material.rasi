@@ -3,7 +3,7 @@
     bg-alt:   #32302f;
     fg:       #d4be98;
     fg-alt:   #928374;
-    accent:   #8ec07c; /* Teal/Aqua Accent */
+    accent:   #8ec07c; 
     border:   #45403d;
     danger:   #ea6962;
     background-color: transparent;
@@ -41,7 +41,6 @@ entry {
     placeholder-color:  @fg-alt;
 }
 
-/* --- Error / info line (e.g. broken .desktop entries) --- */
 message {
     background-color: transparent;
     padding:            10px 0px 0px 0px;
